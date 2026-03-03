@@ -72,3 +72,11 @@ set(SRCS
 add_executable(flip_geodesics "${SRCS}")
 target_include_directories(flip_geodesics PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/")
 target_link_libraries(flip_geodesics geometry-central polyscope)
+
+# Batch CLI tool (no GUI, for comparison benchmarks)
+add_executable(flipout_batch src/flipout-batch.cpp)
+target_include_directories(flipout_batch PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/"
+    "${CMAKE_CURRENT_SOURCE_DIR}/deps/polyscope/deps/json/include/"
+)
+target_link_libraries(flipout_batch geometry-central)
